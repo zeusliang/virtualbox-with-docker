@@ -12,6 +12,8 @@ Vagrant.configure("2") do |config|
   config.vm.define "dev" do |dev|
       
       dev.vm.provision "shell", inline: "echo m:dev"
+      dev.vm.provision "shell", path: "./install-docker.sh"
+
       
       # add share directory
       dev.vm.synced_folder "share/", "/share/"
